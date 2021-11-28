@@ -5,7 +5,7 @@
   #include<cmath>
   #include<fstream>
   #define PI acos(-1)
-  #define N 64//number of points
+  #define N 2048//number of points
   using namespace std;
   struct point
   {
@@ -165,7 +165,7 @@
       cout<<"Analytical solution - first_Derivative："<<endl;
       for (int i = 0; i < N; i++)
       {
-         cout<<Analytical_solution_first[i]<<" ";
+        // cout<<Analytical_solution_first[i]<<" ";
       }
       cout<<endl;
       cout<<endl;
@@ -176,7 +176,7 @@
       for (int i = 0; i < N; i++)
       {     
           
-          cout<<first_Derivative_Finite[i]<<" ";
+         // cout<<first_Derivative_Finite[i]<<" ";
           OutFile<<p1[i].x<<" "<<first_Derivative_Finite[i]<<endl;
       }
 	  OutFile.close();
@@ -188,7 +188,7 @@
       OutFile.open("Test1_1_Fourier_spectra.txt");
       for (int i = 0; i < N; i++)
       {
-          cout<<spectra_Methods_1[i]/N<<" ";
+          //cout<<spectra_Methods_1[i]/N<<" ";
           OutFile<<p1[i].x<<" "<<spectra_Methods_1[i]/N<<endl;
       }
 	  OutFile.close();
@@ -203,7 +203,7 @@
       cout<<"Analytical solution - second_Derivative："<<endl;
       for (int i = 0; i < N; i++)
       {
-         cout<<Analytical_solution_second[i]<<" ";
+        // cout<<Analytical_solution_second[i]<<" ";
       }
       cout<<endl;
       cout<<endl;
@@ -241,7 +241,7 @@
       OutFile.open("Test1_2_Finite_difference.txt");
       for (int i = 0; i < N-1; i++)
       {
-          cout<<second_Derivative_Finite[i]<<" ";
+          //cout<<second_Derivative_Finite[i]<<" ";
           OutFile<<p1[i].x<<" "<<second_Derivative_Finite[i]<<endl;
       }
 	  OutFile.close();
@@ -255,7 +255,7 @@
       OutFile.open("Test1_2_Fourier_spectra.txt");
       for (int i = 1; i < N-1; i++)
       {
-         cout<<spectra_Methods_2[i]/N<<" ";
+         //cout<<spectra_Methods_2[i]/N<<" ";
          OutFile<<p1[i].x<<" "<<spectra_Methods_2[i]/N<<endl;
       }
 	  OutFile.close();
@@ -323,7 +323,7 @@
       cout<<"Analytical solution - first_Derivative："<<endl;
       for (int i = 0; i < N; i++)
       {
-         cout<<Analytical_solution_first[i]<<" ";
+         //cout<<Analytical_solution_first[i]<<" ";
       }
       cout<<endl;
       cout<<endl;
@@ -333,7 +333,7 @@
       OutFile.open("Test2_1_Finite_difference.txt");
       for (int i = 0; i < N; i++)
       {     
-          cout<<first_Derivative_Finite[i]<<" ";
+         // cout<<first_Derivative_Finite[i]<<" ";
           OutFile<<p1[i].x<<" "<<first_Derivative_Finite[i]<<endl;
       }
 	  OutFile.close();
@@ -345,7 +345,7 @@
       OutFile.open("Test2_1_Fourier_spectra.txt");
       for (int i = 0; i < N; i++)
       {
-          cout<<spectra_Methods_1[i]/N<<" ";
+         // cout<<spectra_Methods_1[i]/N<<" ";
           OutFile<<p1[i].x<<" "<<spectra_Methods_1[i]/N<<endl;
       }
 	  OutFile.close();
@@ -386,7 +386,7 @@
       cout<<"Analytical solution - second_Derivative："<<endl;
       for (int i = 0; i < N; i++)
       {
-         cout<<Analytical_solution_second[i]<<" ";
+        // cout<<Analytical_solution_second[i]<<" ";
       }
       cout<<endl;
       cout<<endl;
@@ -396,7 +396,7 @@
       OutFile.open("Test2_2_Finite_difference.txt");
       for (int i = 0; i < N-1; i++)
       {
-          cout<<second_Derivative_Finite[i]<<" ";
+         // cout<<second_Derivative_Finite[i]<<" ";
           OutFile<<p1[i].x<<" "<<second_Derivative_Finite[i]<<endl;
       }
 	  OutFile.close();
@@ -409,7 +409,7 @@
       OutFile.open("Test2_2_Fourier_spectra.txt");
       for (int i = 0; i < N-1; i++)
       {
-         cout<<spectra_Methods_2[i]/N<<" ";
+         //cout<<spectra_Methods_2[i]/N<<" ";
          OutFile<<p1[i].x<<" "<<spectra_Methods_2[i]/N<<endl;
       }
 	  OutFile.close();
@@ -435,10 +435,12 @@
           error_FFT_2[i]=abs(spectra_Methods_2[i]/N-Analytical_solution_second[i]);
       }
       error_max=-1.0;
-      for (int i = 1; i < N; i++)
+      for (int i = 1; i < N-1; i++)
       {
           if(error_FFT_2[i]>error_max)
+          {
             error_max=error_FFT_2[i];
+          }
       }
       cout<<"The max error of Fourier spectra solution - second_Derivative: "<<error_max<<endl;
       delete[]error_FFT_2;
@@ -477,7 +479,7 @@
       cout<<"Analytical solution -first_Derivative："<<endl;
       for (int i = 0; i < N; i++)
       {
-         cout<<Analytical_solution_first[i]<<" ";
+        // cout<<Analytical_solution_first[i]<<" ";
       }
       cout<<endl;
       cout<<endl;
@@ -487,7 +489,7 @@
       OutFile.open("Test3_1_Finite_difference.txt");
       for (int i = 0; i < N; i++)
       {     
-          cout<<first_Derivative_Finite[i]<<" ";
+         // cout<<first_Derivative_Finite[i]<<" ";
           OutFile<<p1[i].x<<" "<<first_Derivative_Finite[i]<<endl;
       }
 	  OutFile.close();
@@ -499,7 +501,7 @@
       OutFile.open("Test3_1_Fourier_spectra.txt");
       for (int i = 0; i < N; i++)
       {
-          cout<<spectra_Methods_1[i]/N<<" ";
+         // cout<<spectra_Methods_1[i]/N<<" ";
           OutFile<<p1[i].x<<" "<<spectra_Methods_1[i]/N<<endl;
       }
 	  OutFile.close();
@@ -541,7 +543,7 @@
       cout<<"Analytical solution - second_Derivative："<<endl;
       for (int i = 0; i < N; i++)
       {
-         cout<<Analytical_solution_second[i]<<" ";
+        // cout<<Analytical_solution_second[i]<<" ";
       }
       cout<<endl;
       cout<<endl;
@@ -551,7 +553,7 @@
       OutFile.open("Test3_2_Finite_difference.txt");
       for (int i = 0; i < N-1; i++)
       {
-          cout<<second_Derivative_Finite[i]<<" ";
+        //  cout<<second_Derivative_Finite[i]<<" ";
           OutFile<<p1[i].x<<" "<<second_Derivative_Finite[i]<<endl;
       }
 	  OutFile.close();
@@ -564,7 +566,7 @@
       OutFile.open("Test3_2_Fourier_spectra.txt");
       for (int i = 0; i < N; i++)
       {
-         cout<<spectra_Methods_2[i]/N<<" ";
+        // cout<<spectra_Methods_2[i]/N<<" ";
          OutFile<<p1[i].x<<" "<<spectra_Methods_2[i]/N<<endl;
       }
 	  OutFile.close();
